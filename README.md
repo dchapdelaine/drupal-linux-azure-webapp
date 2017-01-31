@@ -12,7 +12,9 @@ At a high level this is what we will do:
 4. Setup and define the build steps
 5. Setup and define the release steps
 
-We will expand on these points one by one.
+We will expand on these points one by one. This diagram gives a high level overview of what we will achieve.
+
+![alt text](./documentation/diagrams/Overview.png "High Level Overview")
 
 # Setup Visual Studio Team Services
 
