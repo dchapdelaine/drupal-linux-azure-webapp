@@ -34,9 +34,14 @@ This steps it meant to define the build and deployment services that will be lev
             wget http://security.ubuntu.com/ubuntu/pool/main/i/icu/libicu52_52.1-3ubuntu0.4_amd64.deb
             sudo dpkg -i libicu52_52.1-3ubuntu0.4_amd64.deb
             ```
-    3. Install PHP: `sudo apt-get install php libapache2-mod-php php-mcrypt php-mysql`
-    4. Install Composer as explained [here](https://getcomposer.org/download/)
-        * Once done, run this: `mv composer.phar /usr/local/bin/composer`
+    3. Install PHP: 
+    ```
+    sudo apt-get install php libapache2-mod-php php-mcrypt php-MySQL
+    ```
+    4. Install Composer as explained [here](https://getcomposer.org/download/) and then run this:
+    ```
+    mv composer.phar /usr/local/bin/composer
+    ```
     5. Install Docker as explained [here](https://docs.docker.com/engine/installation/linux/ubuntu/)
         * 	Once done, follow [this](https://docs.docker.com/engine/installation/linux/linux-postinstall/) to allow access for non-root users and to enable the docker service to start on boot.
     6. Install Azure-CLI as explained [here](https://docs.microsoft.com/en-us/azure/xplat-cli-install)
@@ -59,9 +64,17 @@ The next step is to have Drupal’s source code along with your own in a Git rep
     ```
 3. Copy the deployment folder from this procedure to your repository and push them to your repository.
     ```
-    copy {source}\deployment {destination}\deployment
-    git add deployment
-    git commit -m “Adding build and deployment scripts”
+    copy {source}\deployment {mywebapp}\
+    ```
+4. Copy the settings.php file at its usual destination in your Drupal website. It is preconfigured to fetch its database settings from environment variables
+    ```
+    mkdir {mywebapp}\sites\default
+    copy {source}\settings.php {mywebapp}\sites\default
+    ```
+5. Let's commit theses changes and push them to our remote server
+    ```
+    git add .
+    git commit -m “Adding build, deployment scripts and preconfigured settings.php”
     git push
     ```
 
